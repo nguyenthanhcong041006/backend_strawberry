@@ -2,12 +2,8 @@
 torch
 torchvision
 numpy
-pandas
 pillow
 opencv-python-headless
-scikit-learn
-matplotlib
-tqdm
 fastapi
 uvicorn
 python-multipart
