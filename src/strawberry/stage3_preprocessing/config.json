@@ -1,0 +1,28 @@
+{
+    "active_dataset": "strawberry",
+    "processed_dir": "data/02_processed/strawberry",
+    "sensor_csv": null,
+
+    "datasets": {
+        "strawberry": {
+            "input_dir": "data/01_raw/strawberry",
+            "output_dir": "data/02_processed/strawberry",
+
+            "crop": {
+                "width": 1116,
+                "height": 930
+            },
+
+            "image_type": "strawberry",
+            "mask_dir": "segmented",
+            "frame_diff": {
+                "motion_threshold": 0.015,
+                "component_threshold": 0.006,
+                "pixel_threshold": 45,
+                "max_side": 900,
+                "mask_prefix": "segmented",
+                "output_prefix": "cropped"
+                }
+        }
+    }
+}

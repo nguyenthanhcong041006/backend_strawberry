@@ -1,0 +1,6 @@
+dataset: "avocado"
+paths:
+  raw_dir: "data/01_raw/avocado"
+  processed_dir: "data/02_processed/avocado"
+  models_dir: "models/avocado"
+  outputs_dir: "data/outputs/avocado"

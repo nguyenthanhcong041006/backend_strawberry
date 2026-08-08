@@ -1,0 +1,6 @@
+dataset: "strawberry"
+paths:
+  raw_dir: "data/01_raw/strawberry"
+  processed_dir: "data/02_processed/strawberry"
+  models_dir: "models/strawberry"
+  outputs_dir: "data/outputs/strawberry"

@@ -1,0 +1,19 @@
+{
+  "project_root": ".",
+  "source_roots": [
+    "data/01_raw/avocado"
+  ],
+  "output_root": "data/01_raw_dev_sample/avocado_n100_seed20260629",
+  "manifest_path": "data/01_raw_dev_sample/avocado_n100_seed20260629/sample_manifest.csv",
+  "image_extensions": [
+    ".jpg",
+    ".jpeg",
+    ".png"
+  ],
+  "sample_size": 100,
+  "random_seed": 20260629,
+  "include_source_root_name": true,
+  "copy_mode": "copy",
+  "overwrite_existing": false
+}
+

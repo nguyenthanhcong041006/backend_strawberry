@@ -1,0 +1,124 @@
+{
+  "config_path": "configs\\stage_1_5_image_inventory_full.yaml",
+  "project_root": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction",
+  "raw_roots": [
+    "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\01_raw\\avocado"
+  ],
+  "image_extensions": [
+    ".jpg",
+    ".jpeg",
+    ".png"
+  ],
+  "output": {
+    "inventory_csv_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\02_processed\\stage_1_5\\full\\master_image_inventory.csv",
+    "summary_report_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\reports\\stage_1_5\\full\\image_inventory_summary.md",
+    "debug_report_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\reports\\stage_1_5\\full\\stage_1_5_run_debug.json",
+    "graphs_dir": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\graphs\\stage_1_5\\full"
+  },
+  "processing": {
+    "parallel": true,
+    "max_workers": 8,
+    "fail_fast": false,
+    "sort_output_by": "relative_path"
+  },
+  "active_naming_rule": "fallback_stem_only",
+  "tool_results": [
+    {
+      "tool_name": "ImageFileDiscoverer",
+      "success": true,
+      "started_at": "2026-06-30T09:25:27.397688+00:00",
+      "finished_at": "2026-06-30T09:25:27.602621+00:00",
+      "duration_seconds": 0.204933,
+      "message": "Discovered 1027 supported image files.",
+      "warnings": [],
+      "errors": [],
+      "debug": {
+        "total_files": 1027,
+        "counts_by_root": {
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\01_raw\\avocado": 1027
+        },
+        "counts_by_extension": {
+          ".jpg": 1027
+        },
+        "raw_roots": [
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\01_raw\\avocado"
+        ],
+        "image_extensions": [
+          ".jpg",
+          ".jpeg",
+          ".png"
+        ]
+      }
+    },
+    {
+      "tool_name": "ImageInventoryBuilder",
+      "success": true,
+      "started_at": "2026-06-30T09:25:27.602621+00:00",
+      "finished_at": "2026-06-30T09:26:24.126975+00:00",
+      "duration_seconds": 56.52490950000356,
+      "message": "Wrote master inventory CSV with 1027 rows.",
+      "warnings": [],
+      "errors": [],
+      "debug": {
+        "inventory_csv_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\02_processed\\stage_1_5\\full\\master_image_inventory.csv",
+        "row_count": 1027,
+        "readable_count": 1027,
+        "unreadable_count": 0,
+        "naming_rule_matches": 1027,
+        "naming_rule_failures": 0
+      }
+    },
+    {
+      "tool_name": "ImageInventoryReportBuilder",
+      "success": true,
+      "started_at": "2026-06-30T09:26:24.135398+00:00",
+      "finished_at": "2026-06-30T09:26:24.354020+00:00",
+      "duration_seconds": 0.2318264000059571,
+      "message": "Wrote image inventory summary report: D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\reports\\stage_1_5\\full\\image_inventory_summary.md",
+      "warnings": [],
+      "errors": [],
+      "debug": {
+        "summary_report_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\reports\\stage_1_5\\full\\image_inventory_summary.md",
+        "row_count": 1027,
+        "chart_paths": [
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\graphs\\stage_1_5\\full\\extension_counts.png",
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\graphs\\stage_1_5\\full\\dimension_counts.png",
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\graphs\\stage_1_5\\full\\file_size_distribution.png",
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\graphs\\stage_1_5\\full\\brightness_mean_distribution.png",
+          "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\graphs\\stage_1_5\\full\\rgb_mean_boxplot.png"
+        ]
+      }
+    },
+    {
+      "tool_name": "NumericDataCrossChecker",
+      "success": true,
+      "started_at": "2026-06-30T09:26:24.367772+00:00",
+      "finished_at": "2026-06-30T09:26:24.423399+00:00",
+      "duration_seconds": 0.055774300009943545,
+      "message": "Wrote numeric coverage cross-check report: D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\reports\\stage_1_5\\full\\numeric_coverage_crosscheck.md",
+      "warnings": [
+        "1 inventory image(s) could not be parsed into timestamp keys."
+      ],
+      "errors": [],
+      "debug": {
+        "enabled": true,
+        "image_coverage_csv_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\02_processed\\stage_1_5\\full\\image_numeric_coverage.csv",
+        "numeric_coverage_csv_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\data\\02_processed\\stage_1_5\\full\\numeric_image_coverage.csv",
+        "report_path": "D:\\GW_UNIVERSITY\\AIS\\Fruit_shell_life\\Env\\UOG_AIS_Fruit_V2\\Strawberry-RUL-prediction\\output\\reports\\stage_1_5\\full\\numeric_coverage_crosscheck.md",
+        "image_rows": 1027,
+        "images_with_timestamp": 1026,
+        "images_without_timestamp": 1,
+        "images_with_hardness": 1026,
+        "images_missing_hardness": 1,
+        "images_with_environment": 1026,
+        "images_missing_environment": 1,
+        "numeric_rows": 1038,
+        "numeric_rows_with_image": 1038,
+        "numeric_rows_missing_image": 0
+      }
+    }
+  ],
+  "success": true,
+  "warning_count": 1,
+  "error_count": 0
+}

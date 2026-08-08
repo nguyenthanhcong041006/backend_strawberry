@@ -1,0 +1,92 @@
+[
+  {
+    "seq_len": 8,
+    "fusion_mode": "image_only",
+    "fold_mae_mean": 15.297409306680231,
+    "fold_mae_std": 5.632335164097435
+  },
+  {
+    "seq_len": 8,
+    "fusion_mode": "early_concat",
+    "fold_mae_mean": 15.313493495450386,
+    "fold_mae_std": 5.674033487295879
+  },
+  {
+    "seq_len": 12,
+    "fusion_mode": "early_concat",
+    "fold_mae_mean": 15.360771753218316,
+    "fold_mae_std": 5.866427743178201
+  },
+  {
+    "seq_len": 5,
+    "fusion_mode": "image_only",
+    "fold_mae_mean": 15.404061233121093,
+    "fold_mae_std": 5.934755159200963
+  },
+  {
+    "seq_len": 5,
+    "fusion_mode": "early_concat",
+    "fold_mae_mean": 15.422141140514888,
+    "fold_mae_std": 5.763590106087218
+  },
+  {
+    "seq_len": 5,
+    "fusion_mode": "late_env_branch",
+    "fold_mae_mean": 15.482400963422052,
+    "fold_mae_std": 6.670078610218118
+  },
+  {
+    "seq_len": 12,
+    "fusion_mode": "image_only",
+    "fold_mae_mean": 15.527004556831649,
+    "fold_mae_std": 5.961969205974857
+  },
+  {
+    "seq_len": 3,
+    "fusion_mode": "late_env_branch",
+    "fold_mae_mean": 15.538238684151416,
+    "fold_mae_std": 5.917996509067265
+  },
+  {
+    "seq_len": 8,
+    "fusion_mode": "late_env_branch",
+    "fold_mae_mean": 15.5471904751641,
+    "fold_mae_std": 6.868886601025525
+  },
+  {
+    "seq_len": 3,
+    "fusion_mode": "early_concat",
+    "fold_mae_mean": 15.612781335786446,
+    "fold_mae_std": 4.93428925114518
+  },
+  {
+    "seq_len": 10,
+    "fusion_mode": "late_env_branch",
+    "fold_mae_mean": 15.634672247559243,
+    "fold_mae_std": 7.145919716130844
+  },
+  {
+    "seq_len": 3,
+    "fusion_mode": "image_only",
+    "fold_mae_mean": 15.653319690278488,
+    "fold_mae_std": 4.874930101885879
+  },
+  {
+    "seq_len": 10,
+    "fusion_mode": "image_only",
+    "fold_mae_mean": 15.670775501785478,
+    "fold_mae_std": 5.781560183896297
+  },
+  {
+    "seq_len": 10,
+    "fusion_mode": "early_concat",
+    "fold_mae_mean": 15.78359961439511,
+    "fold_mae_std": 5.684838152693049
+  },
+  {
+    "seq_len": 12,
+    "fusion_mode": "late_env_branch",
+    "fold_mae_mean": 15.886435218206465,
+    "fold_mae_std": 7.134681426771665
+  }
+]

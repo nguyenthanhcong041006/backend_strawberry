@@ -1,0 +1,43 @@
+{
+  "run_name": "strawberry_loocv_seq8_image_only",
+  "seq_len": 8,
+  "max_gap_hours": 1.0,
+  "fusion_mode": "image_only",
+  "temporal_pooling": "last_mean_max",
+  "image_size": 224,
+  "batch_size": 4,
+  "epochs": 18,
+  "patience": 5,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "hidden_size": 160,
+  "env_hidden_size": 64,
+  "dropout": 0.25,
+  "backbone_dropout": 0.1,
+  "grad_clip": 1.0,
+  "seed": 42,
+  "amp": true,
+  "num_workers": 0,
+  "pretrained_backbone": true,
+  "target_transform": "robust_zscore",
+  "env_feature_mode": "sensor",
+  "env_tolerance_minutes": 45,
+  "checkpoint_root": "models/strawberry/runs",
+  "artifact_root": "output/runs/strawberry",
+  "model_keys": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "image_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "image_std": [
+    0.229,
+    0.224,
+    0.225
+  ]
+}

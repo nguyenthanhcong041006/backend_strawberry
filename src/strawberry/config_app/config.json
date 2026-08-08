@@ -1,0 +1,31 @@
+﻿{
+    "active_dataset": "strawberry",
+
+    "model": {
+<<<<<<< HEAD
+        "path": "models/strawberry/model_D/best_model.pth"
+=======
+        "path": "models/strawberry/production/model_D/best_model.pt",
+        "key": "D",
+        "seq_len": 8,
+        "fusion_mode": "image_only",
+        "temporal_pooling": "last_mean_max",
+        "hidden_size": 160,
+        "env_hidden_size": 64,
+        "dropout": 0.25,
+        "backbone_dropout": 0.1
+>>>>>>> a6acd2b62577c615a83ad77dda6f71e45cdcc486
+    },
+
+    "image": {
+        "crop_width": 1116,
+        "crop_height": 930,
+        "max_side": 900
+    },
+
+    "frame_diff": {
+        "motion_threshold": 0.015,
+        "component_threshold": 0.006,
+        "pixel_threshold": 45
+    }
+}

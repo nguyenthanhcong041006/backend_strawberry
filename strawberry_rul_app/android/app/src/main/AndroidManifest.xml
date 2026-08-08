@@ -1,0 +1,48 @@
+﻿<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Needed to take photos with Open Camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Needed to pick images from gallery (Upload Image) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- Needed to call the backend prediction API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Declares that the app can use a camera, but doesn't require one
+         (e.g. still installable on devices without a camera) -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <application
+        android:label="strawberry_rul_app"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+        <!-- Note: image_picker (>=0.8.5) automatically merges its own
+             FileProvider into this manifest at build time, so no manual
+             FileProvider declaration is needed here. -->
+    </application>
+</manifest>

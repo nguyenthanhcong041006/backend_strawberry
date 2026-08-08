@@ -1,0 +1,54 @@
+project_root: .
+
+raw_roots:
+  - data/01_raw/avocado
+
+image_extensions:
+  - .jpg
+  - .jpeg
+  - .png
+
+output:
+  inventory_csv_path: data/02_processed/stage_1_5/full/master_image_inventory.csv
+  summary_report_path: output/reports/stage_1_5/full/image_inventory_summary.md
+  debug_report_path: output/reports/stage_1_5/full/stage_1_5_run_debug.json
+  graphs_dir: output/graphs/stage_1_5/full
+
+logging:
+  logs_root: logs/stage_1_5
+  level: INFO
+  write_per_image_warnings: true
+
+processing:
+  parallel: true
+  max_workers: 8
+  fail_fast: false
+  sort_output_by: relative_path
+
+naming_rules:
+  active_rule: fallback_stem_only
+  rules:
+    fallback_stem_only:
+      description: "Fallback rule that accepts any filename stem as sample_id."
+      regex: "^(?P<sample_id>.+)$"
+      required_fields:
+        - sample_id
+      optional_fields: []
+      date_fields: {}
+
+numeric_crosscheck:
+  enabled: true
+  output:
+    image_coverage_csv_path: data/02_processed/stage_1_5/full/image_numeric_coverage.csv
+    numeric_coverage_csv_path: data/02_processed/stage_1_5/full/numeric_image_coverage.csv
+    report_path: output/reports/stage_1_5/full/numeric_coverage_crosscheck.md
+  hardness:
+    csv_path: data/01_raw/avocado/hardness/hardness.csv
+    date_column: time
+    fruit_value_prefix: fruit_
+  environment:
+    csv_path: data/01_raw/avocado/th10s_readings.csv
+    timestamp_column: timestamp
+  image_timestamp:
+    regex: "^webcam_(?P<date>\\d{4}-\\d{2}-\\d{2})_(?P<time>\\d{2}-\\d{2}-\\d{2})(?:\\.[^.]+)?$"
+    timezone_policy: compare_local_timestamp_text
