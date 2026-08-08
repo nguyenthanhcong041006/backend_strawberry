@@ -8,7 +8,5 @@ dependencies = [
     "python-multipart",
     "numpy",
     "pillow",
-    "opencv-python-headless",
-    "torch",
-    "torchvision"
+    "opencv-python-headless"
 ]
