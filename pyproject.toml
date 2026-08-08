@@ -4,4 +4,4 @@ version = "1.0.0"
 requires-python = ">=3.10"
 
 [tool.vercel]
-entrypoint = "src.strawberry.api.index:app"
+entrypoint = "api.index:app"
