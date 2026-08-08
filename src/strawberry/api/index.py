@@ -1,9 +1,9 @@
 import sys
 from pathlib import Path
 
-SRC_DIR = Path(__file__).resolve().parents[1]
+STRAWBERRY_DIR = Path(__file__).resolve().parent.parent
 
-if str(SRC_DIR) not in sys.path:
-    sys.path.insert(0, str(SRC_DIR))
+if str(STRAWBERRY_DIR) not in sys.path:
+    sys.path.insert(0, str(STRAWBERRY_DIR))
 
-from strawberry.app import app
+from app import app
