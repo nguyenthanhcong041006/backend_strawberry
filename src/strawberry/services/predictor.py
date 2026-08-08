@@ -40,7 +40,7 @@ class FruitRULPredictor:
             # Fallback based on fruit type
             if self.fruit_type == "avocado":
                 return self.project_root / "models" / "avocado" / "numeric_baselines" / "best_model.pth"
-            return self.project_root / "models" / "strawberry" / "production" / "model_D" / "best_model.pt"
+            return self.project_root / "models" / "strawberry" / "model_D" / "best_model.pth"
         path = Path(model_path)
         return path if path.is_absolute() else self.project_root / path
 
@@ -92,9 +92,20 @@ class FruitRULPredictor:
                 # TODO: instantiate avocado models
                 raise NotImplementedError(f"Model for {self.fruit_type} not fully implemented yet.")
 
-            state_dict = checkpoint.get("model_state_dict") or checkpoint.get("state_dict") or checkpoint.get("model")
+            if isinstance(checkpoint, dict) and any(
+            key in checkpoint for key in ("model_state_dict", "state_dict", "model")
+            ):
+                state_dict = (
+                checkpoint.get("model_state_dict")
+        or checkpoint.get("state_dict")
+        or checkpoint.get("model")
+    )
+            else:
+                # The checkpoint itself is the model state_dict
+                state_dict = checkpoint
+
             if not isinstance(state_dict, dict):
-                raise ValueError(f"Checkpoint does not contain a model_state_dict: {self.model_path}")
+                raise ValueError(f"Unexpected checkpoint format: {self.model_path}")
             model.load_state_dict(state_dict, strict=False)
             model.eval()
             self.model = model

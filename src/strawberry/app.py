@@ -9,8 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 SRC_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = SRC_DIR.parent
-STRAWBERRY_DIR = SRC_DIR / "strawberry"
+PROJECT_ROOT = SRC_DIR.parent.parent
+STRAWBERRY_DIR = SRC_DIR
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 if str(STRAWBERRY_DIR) not in sys.path:
