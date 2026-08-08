@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
 
@@ -158,8 +158,9 @@ def preprocess(image: np.ndarray, config: dict) -> PreprocessResult | None:
     if image is None or image.size == 0:
         return None
 
-    image = remove_alpha(image)
-    image = center_crop(image, config.get("crop_width"), config.get("crop_height"))
+    crop_w = config.get("crop_width") or config.get("image", {}).get("crop_width")
+    crop_h = config.get("crop_height") or config.get("image", {}).get("crop_height")
+    image = center_crop(image, crop_w, crop_h)
     if image is None or image.size == 0:
         return None
 

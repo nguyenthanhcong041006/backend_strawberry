@@ -6,7 +6,10 @@ from threading import Lock
 import numpy as np
 import torch
 
-from strawberry.training.models import build_model
+try:
+    from strawberry.training.models import build_model
+except ModuleNotFoundError:
+    from training.models import build_model
 
 from utils_app.image_utils import numpy_to_tensor, remove_alpha
 
@@ -16,7 +19,8 @@ class FruitRULPredictor:
         self.config = config
         self.project_root = project_root
         self.fruit_type = config.get("active_dataset", "strawberry")
-        self.image_size = int(config.get("image", {}).get("crop_width", 224)) # fallback to crop_width or 224
+        # image_size for CNN backbone feature extraction should default to 224 (not crop_width 1116)
+        self.image_size = int(config.get("image", {}).get("image_size") or config.get("image_size", 224))
         self.device = self._resolve_device(config.get("device", "cpu"))
         self.seq_len = int(config.get("model", {}).get("seq_len", 5))
         
@@ -37,12 +41,27 @@ class FruitRULPredictor:
 
     def _resolve_model_path(self, model_path: str | None) -> Path:
         if not model_path:
-            # Fallback based on fruit type
             if self.fruit_type == "avocado":
-                return self.project_root / "models" / "avocado" / "numeric_baselines" / "best_model.pth"
-            return self.project_root / "models" / "strawberry" / "model_D" / "best_model.pth"
-        path = Path(model_path)
-        return path if path.is_absolute() else self.project_root / path
+                default_rel = Path("models") / "avocado" / "numeric_baselines" / "best_model.pth"
+            else:
+                default_rel = Path("models") / "strawberry" / "model_D" / "best_model.pth"
+        else:
+            default_rel = Path(model_path)
+
+        if default_rel.is_absolute() and default_rel.exists():
+            return default_rel
+
+        candidates = [
+            self.project_root / default_rel,
+            Path.cwd() / default_rel,
+            Path(__file__).resolve().parent.parent.parent.parent / default_rel,
+        ]
+        for candidate in candidates:
+            if candidate.exists():
+                return candidate.resolve()
+
+        return self.project_root / default_rel
+
 
     def _load_checkpoint(self) -> dict:
         if not self.model_path.exists():

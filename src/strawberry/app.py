@@ -22,12 +22,19 @@ from api.routes import router
 from services.predictor import FruitRULPredictor
 
 
-CONFIG_PATH = STRAWBERRY_DIR / "config_app" / "config.json"
-
-
 def load_config() -> dict:
-    with open(CONFIG_PATH, "r", encoding="utf-8-sig") as config_file:
-        return json.load(config_file)
+    candidates = [
+        STRAWBERRY_DIR / "config_app" / "config.json",
+        PROJECT_ROOT / "src" / "strawberry" / "config_app" / "config.json",
+        Path.cwd() / "src" / "strawberry" / "config_app" / "config.json",
+        Path.cwd() / "config_app" / "config.json",
+    ]
+    for config_path in candidates:
+        if config_path.exists():
+            with open(config_path, "r", encoding="utf-8-sig") as config_file:
+                return json.load(config_file)
+    raise FileNotFoundError(f"Config file not found in any candidate path: {candidates}")
+
 
 
 def create_app() -> FastAPI:

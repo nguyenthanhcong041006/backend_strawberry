@@ -1,0 +1,16 @@
+data/
+notebooks/
+output/
+docs/
+configs/
+scripts/
+.git/
+.gitignore
+.vscode/
+*.log
+*.png
+*.jpg
+*.csv
+scratch/
+uvicorn.err.log
+uvicorn.out.log
